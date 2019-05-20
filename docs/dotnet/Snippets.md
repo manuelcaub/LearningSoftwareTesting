@@ -166,3 +166,16 @@ var builder = new WebHostBuilder()
 
 var server = new TestServer(builder);
 ```
+
+``` cs
+public async Task InitializeAsync()
+{
+    using (var scope = Server.Host.Services.CreateScope())
+    {
+        var context = (CarShopDbContext)scope
+            .ServiceProvider
+            .GetService(typeof(CarShopDbContext));
+        await context.Database.MigrateAsync();
+    }
+}
+```
