@@ -181,7 +181,7 @@ public async Task InitializeAsync()
 ```
 
 ``` cs
-public async Task ExecuteDbContextAsync<TService>(Func<CarShopDbContext, Task> act)
+public async Task ExecuteDbContextAsync(Func<CarShopDbContext, Task> act)
 {
     using (var scope = Server.Host.Services.CreateScope())
     {
